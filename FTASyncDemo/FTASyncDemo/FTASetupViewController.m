@@ -97,7 +97,7 @@
     //Clear out CoreData
     [FTASyncParent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
     [FTASyncHandler sharedInstance].ignoreContextSave = YES;
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
     [FTASyncHandler sharedInstance].ignoreContextSave = NO;
     
     //Clear out pending local deletions

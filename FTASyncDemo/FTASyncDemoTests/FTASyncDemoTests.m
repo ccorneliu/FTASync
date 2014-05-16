@@ -2,31 +2,33 @@
 //  FTASyncDemoTests.m
 //  FTASyncDemoTests
 //
-//  Created by Justin Bergen on 4/1/12.
-//  Copyright (c) 2012 Five3 Apps. All rights reserved.
+//  Created by Corneliu Chitanu on 16/05/14.
+//  Copyright (c) 2014 Corneliu Chitanu. All rights reserved.
 //
 
-#import "FTASyncDemoTests.h"
+#import <XCTest/XCTest.h>
+
+@interface FTASyncDemoTests : XCTestCase
+
+@end
 
 @implementation FTASyncDemoTests
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in FTASyncDemoTests");
+    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

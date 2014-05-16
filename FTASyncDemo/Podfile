@@ -1,0 +1,5 @@
+platform :ios, '6.0'
+
+pod 'MagicalRecord', '~> 2.2'
+pod 'NPReachability', '~> 0.2'
+pod 'Parse', '~> 1.2'

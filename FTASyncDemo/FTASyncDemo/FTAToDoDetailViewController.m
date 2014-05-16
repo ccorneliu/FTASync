@@ -163,7 +163,7 @@
     self.currentToDo.name = self.todoName.text;
     self.currentToDo.priority = [NSNumber numberWithInt:[self.priorityValue.text intValue]];
         
-    [self.editingContext MR_saveNestedContexts];
+    [self.editingContext MR_saveToPersistentStoreAndWait];
     self.editingContext = nil;
     //TODO: Handle the error
     

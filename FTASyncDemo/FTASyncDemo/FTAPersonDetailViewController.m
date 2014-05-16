@@ -121,7 +121,7 @@
     self.currentPerson.photo = UIImagePNGRepresentation(self.userPic.image);
     self.currentPerson.name = self.personName.text;
     
-    [self.editingContext MR_saveNestedContexts];
+    [self.editingContext MR_saveToPersistentStoreAndWait];
     self.editingContext = nil;
     //TODO: Handle the error
     

@@ -1,0 +1,24 @@
+PODS:
+  - Bolts (1.1.0)
+  - Facebook-iOS-SDK (3.14.1):
+    - Bolts
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
+  - NPReachability (0.2.0)
+  - Parse (1.2.19):
+    - Facebook-iOS-SDK (~> 3.11)
+
+DEPENDENCIES:
+  - MagicalRecord (~> 2.2)
+  - NPReachability (~> 0.2)
+  - Parse (~> 1.2)
+
+SPEC CHECKSUMS:
+  Bolts: dc620a31cf67c29bce3e3d14a07a12e797a1a154
+  Facebook-iOS-SDK: 97e68fb37468bee2d90201fd0c9e4dccce5683d9
+  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
+  NPReachability: 5ba6a5532c1eb1fe9fcb6e24712b379180ec9453
+  Parse: 3739f0b211c49115bad96d6b0969b804d4da2f24
+
+COCOAPODS: 0.32.1

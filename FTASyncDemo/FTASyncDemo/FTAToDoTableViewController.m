@@ -179,7 +179,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [[self.fetchedResultsController objectAtIndexPath:indexPath] MR_deleteEntity];
-        [[NSManagedObjectContext MR_defaultContext] MR_save];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
         //TODO: Handle the error
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

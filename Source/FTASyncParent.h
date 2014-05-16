@@ -12,10 +12,17 @@
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "_FTASyncParent.h"
 #import <Parse/Parse.h>
 
-@interface FTASyncParent : _FTASyncParent {}
+@interface FTASyncParent : NSManagedObject {}
+
+@property (nonatomic, retain) NSString * objectId;
+@property (nonatomic, retain) NSNumber * createdHere;
+@property (nonatomic, retain) NSNumber * syncStatus;
+@property (nonatomic, retain) NSDate * updatedAt;
+
+@property BOOL createdHereValue;
+@property int16_t syncStatusValue;
 
 @property (strong, nonatomic) PFObject *remoteObject;
 
@@ -32,5 +39,8 @@
 + (void)FTA_newObjectsForClass:(NSEntityDescription *)entityDesc withRemoteObjects:(NSArray *)parseObjects;
 + (void)FTA_updateObjectsForClass:(NSEntityDescription *)entityDesc withRemoteObjects:(NSArray *)parseObjects;
 + (void)FTA_deleteObjectsForClass:(NSEntityDescription *)entityDesc withRemoteObjects:(NSArray *)parseObjects;
+
+#pragma mark - Core Data Helpers
++ (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 
 @end

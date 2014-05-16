@@ -32,15 +32,39 @@
 - (void)updateRemoteObject:(PFObject *)parseObject;
 - (void)updateObjectWithRemoteObject:(PFObject *)parseObject;
 
-
 @end
 
 
 @implementation FTASyncParent
 
+@dynamic objectId;
+@dynamic createdHere;
+@dynamic syncStatus;
+@dynamic updatedAt;
+
 @synthesize remoteObject = _remoteObject;
 @synthesize traversing = _traversing;
 @synthesize fromRelationship = _fromRelationship;
+
+
+
+- (BOOL)createdHereValue {
+	NSNumber *result = [self createdHere];
+	return [result boolValue];
+}
+
+- (void)setCreatedHereValue:(BOOL)value_ {
+	[self setCreatedHere:[NSNumber numberWithBool:value_]];
+}
+
+- (int16_t)syncStatusValue {
+	NSNumber *result = [self syncStatus];
+	return [result shortValue];
+}
+
+- (void)setSyncStatusValue:(int16_t)value_ {
+	[self setSyncStatus:[NSNumber numberWithShort:value_]];
+}
 
 #pragma mark - Overridden Methods
 
@@ -457,7 +481,7 @@
                     FSLog(@"Keeping local related object");
                     continue;
                 }
-                SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@Set", relationship]);
+                SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@", relationship]);
                 if ([self respondsToSelector:selector]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -496,7 +520,7 @@
                 }
                 
                 //SEL selector = NSSelectorFromString([NSString stringWithFormat:@"add%@Object:", [destEntity name]]);
-                SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@Set", relationship]);
+                SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@", relationship]);
                 if ([self respondsToSelector:selector]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -607,6 +631,14 @@
         
         [localObject MR_deleteEntity];
     }
+}
+
+#pragma mark - Core Data Helpers
+
++ (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
+	NSParameterAssert(moc_);
+    NSString *entityName = NSStringFromClass(self);
+	return [NSEntityDescription entityForName:entityName inManagedObjectContext:moc_];
 }
 
 @end
